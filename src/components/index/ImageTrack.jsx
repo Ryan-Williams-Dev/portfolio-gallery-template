@@ -1,20 +1,22 @@
 import imageLinks from "../../data/imageTrackImages";
 import Image from "./Image";
+import { motion } from "framer-motion";
 
 function ImageTrack({ percentage }) {
   return (
-    <div
+    <motion.div
       className="image-track"
-      style={{
+      animate={{
         transform: `translate(${percentage}%, -50%)`,
-        transitionDuration: 1200,
-        animationFillMode: "forwards",
+      }}
+      transition={{
+        ease: "linear",
       }}
     >
       {imageLinks.map((image) => (
         <Image url={image} percentage={percentage} />
       ))}
-    </div>
+    </motion.div>
   );
 }
 

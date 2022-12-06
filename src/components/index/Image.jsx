@@ -1,13 +1,22 @@
+import { motion } from "framer-motion";
+
 export default function Image({ url, percentage }) {
   return (
-    <img
+    <motion.img
       className="image"
       src={url}
       draggable="false"
-      style={{
+      // style={{
+      //   objectPosition: `${percentage + 100}% center`,
+      //   transitionDuration: 1200,
+      //   animationFillMode: "forwards",
+      // }}
+
+      animate={{
         objectPosition: `${percentage + 100}% center`,
-        transitionDuration: 1200,
-        animationFillMode: "forwards",
+      }}
+      transition={{
+        ease: "linear",
       }}
     />
   );
